@@ -169,3 +169,20 @@ C:\PATH\> aria2c --check-certificate=false <URL>
   * [aria2 homepage](https://aria2.github.io/)
   * [aria2 documentation](https://aria2.github.io/manual/en/html/)
   * [aria2 source code (Github)](https://github.com/aria2/aria2)
+
+
+## Systemd:
+```
+[Unit]
+Description=Aria2 download manager
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/aria2/aria2c --conf-path=/opt/aria2/aria2.conf
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
+```
